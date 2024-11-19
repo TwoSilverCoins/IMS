@@ -12,5 +12,6 @@ application.post('/equipment', (req, res) => {
             return res.status(500).json({ error: 'Failed to create equipment' });
         }
         // Send a 201 status code with the saved equipment data if successful
-    })
-})
+        res.status(201).json(savedEquipement);
+    });
+});
