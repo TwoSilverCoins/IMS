@@ -9,4 +9,6 @@ app.delete('/equipment/:id', (req, res) => {
       // Send a 500 status code with error message if deletion fails
       return res.status(500).json({ error: 'Failed to delete equipment' });
       )
-    // Send 
+    // Send a 204 status code to indicate successful deletion with no content
+    });
+});
