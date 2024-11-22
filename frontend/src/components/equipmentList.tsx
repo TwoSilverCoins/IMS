@@ -1,4 +1,4 @@
-// equipmentList.tsx
+// EquipmentList.tsx
 import React, { useEffect, useState } from 'react';
 
 // Define an interface for the equipment data
@@ -10,22 +10,23 @@ interface Equipment {
     reorderPoint: number;
 }
 
-function equipmentList() {
+function EquipmentList() {
     // Initialize state for equipment list with an empty array
     const [equipment, setEquipment] = useState<Equipment[]>([]);
 
     // Fetch equipment data from the backend when the component mounts
     useEffect(() => {
         fetch('/equipment')
-        .then((response) => response.json())
-        .then((data) => setEquipment(data));
+            .then((response) => response.json())
+            .then((data) => setEquipment(data));
     }, []);
 
     return (
         <ul>
             {/* Iterate over equipment list and display each item */}
             {equipment.map((item) => (
-                <li key={item.id}>{item.name} - {item.category} - Stock: {item.stockLevel} - Reorder Point: {item.reorderPoint}
+                <li key={item.id}>
+                    {item.name} - {item.category} - Stock: {item.stockLevel} - Reorder Point: {item.reorderPoint}
                     {/* Additional UI for updating stock and reorder points */}
                 </li>
             ))}
@@ -33,4 +34,4 @@ function equipmentList() {
     );
 }
 
-export default equipmentList;
+export default EquipmentList;

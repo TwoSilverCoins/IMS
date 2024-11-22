@@ -1,13 +1,14 @@
-// Read all equipment
-app.get('/equipment', (req, res) => {
-  // Retrieve all equipment data from the database 
-  // Assuming we have a function getAllEquipment to handle this 
-  getAllEquipment((err, equipmentList) => {
-    if (err) {
-      // Send a 500 error status code with error message if retrieval fails
-      return res.status(500).json({ error: 'Failed to retrieve equipment' });
-    }
-    // Send the list of all equipment as a JSON response
-    res.json(equipmentList);
-  });
-});
+// readAllEquipment.js
+
+const Equipment = require('../models/equipmentModel');
+
+// Function to retrieve all equipment
+function readAllEquipment(callback) {
+    // Find all equipment documents in the database
+    Equipment.find({}, (err, equipmentList) => {
+        if (err) return callback(err); // Return error if retrieval fails
+        callback(null, equipmentList); // Return list of all equipment if successful
+    });
+}
+
+module.exports = readAllEquipment; // Export the function for use in other files

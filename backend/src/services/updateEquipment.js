@@ -1,17 +1,14 @@
-// Update Equipment
-app.put('/equipment/id', (req, res) => {
-  // Extract the equipment ID from the request parameters
-  const { id } = req.params;
-  // Extract the updated equipment data from the request body
-  const updatedEquipment = req.body;
-  // Update the equipment data in the database with the specified ID
-  // Assuming we have a function updateEquipment to handle this
-  updateEquipment(id, updatedEquipment, (err, updatedEquipment) => {
-    if (err) {
-      // Send a 500 status code with error message if update fails
-      return res.status(500).json({ error: 'Failed to update equipment' });
-    }
-    // Send the updated equipment data as a JSON response
-    res.json(updatedEquipment);  
-  });
-});
+// updateEquipment.js
+
+const Equipment = require('../models/equipmentModel');
+
+// Function to update equipment by ID
+function updateEquipment(id, data, callback) {
+    // Find equipment by ID and update it with new data
+    Equipment.findByIdAndUpdate(id, data, { new: true }, (err, updatedEquipment) => {
+        if (err) return callback(err); // Return error if update fails
+        callback(null, updatedEquipment); // Return updated equipment if successful
+    });
+}
+
+module.exports = updateEquipment; // Export the function for use in other files

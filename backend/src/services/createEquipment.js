@@ -1,19 +1,17 @@
-const { application } = require("express");
+// createEquipment.js
 
-// Create a new equipment
-application.post('/equipment', (req, res) => {
-    // Extract new equipment data from teh request body
-    const newEquipment = req.body;
-    // Save the new equipment data to the database
-    // Assuming we have a function saveEquipment to handle this
-    saveEquipment(newEquipment, (err, saveEquipment) => {
-        if (err) {
-            // Send a 500 status code with error message if saving fails
-            return res.status(500).json({ error: 'Failed to create equipment' });
-        }
-        // Send a 201 status code with the saved equipment data if successful
-        res.status(201).json(savedEquipement);
+const Equipment = require('../models/equipmentModel');
+
+// Function to create new equipment
+function createEquipment(data, callback) {
+    // Create a new equipment instance with the provided data
+    const newEquipment = new Equipment(data);
+
+    // Save the new equipment to the database
+    newEquipment.save((err, savedEquipment) => {
+        if (err) return callback(err); // Return error if saving fails
+        callback(null, savedEquipment); // Return saved equipment if successful
     });
-});
+}
 
 module.exports = createEquipment; // Export the function for use in other files
