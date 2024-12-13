@@ -7,7 +7,7 @@ interface updateStockProps {
     initialReorderPoint: number;
 }
 
-function updateStock({ id, initialStockLevel, initialReorderPoint }: updateStockProps) {
+function UpdateStock({ id, initialStockLevel, initialReorderPoint }: updateStockProps) {
     // Initialize state for stock level and reorder point
     const [stockLevel, setStockLevel] = useState<number>(initialStockLevel);
     const [reorderPoint, setReorderPoint] = useState<number>(initialReorderPoint);
@@ -58,4 +58,4 @@ function updateStock({ id, initialStockLevel, initialReorderPoint }: updateStock
     );
 }
 
-export default updateStock;
+export default UpdateStock;

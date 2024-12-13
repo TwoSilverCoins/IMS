@@ -4,6 +4,10 @@ const Equipment = require('../models/equipmentModel');
 
 // Function to create new equipment
 function createEquipment(data, callback) {
+    if (!data.name || !data.category) {
+        return callback(new Error('Name and category are required'));
+    }
+    
     // Create a new equipment instance with the provided data
     const newEquipment = new Equipment(data);
 

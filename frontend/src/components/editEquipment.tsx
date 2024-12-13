@@ -64,3 +64,5 @@ function EditEquipment() {
             />
             </form>
     )};
+
+export default EditEquipment;
