@@ -12,7 +12,7 @@
     "test": "jest"
   },
   "jest": {
-  "setupFilesAfterEnv": ["<rootDir>/src/setupTests.ts"]
+  "setupFilesAfterEnv": ["src/test/createEquipment.test.tsx"]
 }
 
 }

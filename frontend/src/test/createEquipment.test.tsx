@@ -2,8 +2,9 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import CreateEquipment from '../components/createEquipment';
+import '@testing-library/jest-dom/extend-expect';
 
-test('creates new equipment', () => {
+test('creates new equipment', async () => {
     const { getByPlaceholderText, getByText } = render(<CreateEquipment />)
     const nameInput = getByPlaceholderText('Name') as HTMLInputElement;
     const categoryInput = getByPlaceholderText('Category') as HTMLInputElement;
