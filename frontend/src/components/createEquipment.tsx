@@ -15,7 +15,7 @@ function CreateEquipment() {
     const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault(); // Prevent default form submission behavior
         // Send a POST request to the backend to create a new equipment
-        await fetch('/equipment', {
+        await fetch('https://localhost:3000/equipment', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData), // Convert form data to JSON

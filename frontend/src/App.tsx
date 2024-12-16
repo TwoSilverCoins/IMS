@@ -6,6 +6,12 @@ import UpdateStock from './components/updateStock';
 import StockDashboard from './components/stockDashboard';
 import StockAlerts from './components/stockAlerts';
 
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route
+} from 'react-router-dom';
+
 function App() {
     return (
         <div>
@@ -16,6 +22,12 @@ function App() {
             <UpdateStock id={0} initialStockLevel={0} initialReorderPoint={0} />
             <StockDashboard />
             <StockAlerts />
+
+            <Router>
+                <Routes>
+                    
+                </Routes>
+            </Router>
         </div>
     );
 }

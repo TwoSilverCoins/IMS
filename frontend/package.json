@@ -1,18 +1,31 @@
 {
-  "devDependencies": {
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1"
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "Frontend for IMS",
+  "main": "App.tsx",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "jest",
+    "eject": "react-scripts eject"
   },
   "dependencies": {
     "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-router-dom": "^7.0.1",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "react-scripts": "4.0.3"
   },
-  "scripts": {
-    "test": "jest"
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@testing-library/react": "^11.2.5",
+    "@testing-library/jest-dom": "^5.11.6",
+    "jest": "^26.6.3",
+    "ts-jest": "^26.5.6",
+    "jest-fetch-mock": "^3.0.3"
   },
   "jest": {
-  "setupFilesAfterEnv": ["src/test/createEquipment.test.tsx"]
-}
-
+    "setupFilesAfterEnv": ["<rootDir>/src/setupTests.ts"]
+  }
 }
